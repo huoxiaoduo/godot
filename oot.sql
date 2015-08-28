@@ -66,5 +66,5 @@ CREATE TABLE `site` (
 -- ----------------------------
 -- Records of site
 -- ----------------------------
-INSERT INTO `site` VALUES ('860010-2369010100', 'yoyi', '0', '0', '0');
-INSERT INTO `site` VALUES ('860010-2370010164', 'URL', '0', '0', '0');
+INSERT INTO `site` VALUES ('010100', 't1', '0', '0', '0');
+INSERT INTO `site` VALUES ('8600', 't2', '0', '0', '0');
