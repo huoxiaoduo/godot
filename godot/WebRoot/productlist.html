@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>列表页面</title>
+<link href="/css/base.css" type="text/css" rel="stylesheet" />
+<link href="/css/table.css" type="text/css" rel="stylesheet" />
+<script src="/js/jquery-1.8.0.min.js"></script>
+</head>
+<body>
+	<div align="center">
+	<br/><br/>
+	<table border="1" class="table">
+		<tr class="tr">
+		    <th class="th">本月新增产品</th>
+		</tr>
+	  	#foreach($site in $list)
+	  	<tr class="tr">
+		    <td class="th">$site</td>
+		</tr>
+		#end
+	</table>
+	<br/><br/>
+	<div><a href="/list" class="add" >返回</a></div>
+	</div>
+</body>
+</html>

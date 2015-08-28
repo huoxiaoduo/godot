@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="godot"
+  id="myeclipse.1414045857647"
+  context-root="/godot"
+  j2ee-spec="6.0"
+  archive="godot.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

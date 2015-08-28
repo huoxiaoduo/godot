@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>网站添加</title>
+    <link href="http://passport.cnblogs.com/css/signin_bundle.css?v=bz_ySXODvfR4SvyE7zrsWqZTU1x7afVQLMhMPrSG6kw1" type="text/css" rel="stylesheet" />
+    <script src="http://static.cnblogs.com/script/jquery.js"></script>
+    <script src="http://passport.cnblogs.com/scripts/jsencrypt.min.js"></script>
+</head>
+<body onload="setFocus()"><!---->
+    <div style="width: 100%;">
+        <div align="center">
+            <div id="Main">
+                <noscript>
+                    <div style="font-size:15px;margin-bottom:20px;">
+                        	您的浏览器未启用Javascript，无法进行登录。
+                    </div>
+                    <style>                       
+                        form { display:none;}
+                    </style>
+                </noscript>
+                <form method="post" action="/add">
+                    <div class="block">
+                        <label class="label-line">id</label>
+                        <input type="text" id="input1" name="id" value="" class="input-text" " /> <span id="tip_input1" class="tip"></span>
+                    </div>
+                    <div class="block">
+                        <label class="label-line">名称</label>
+                        <input type="text" id="input2" name="name" value="" class="input-text" " /> <span id="tip_input2" class="tip"></span>
+                    </div>
+                    <div class="block">
+                        <input type="submit" id="signin" class="button" value="添 加" /> <span id="tip_btn" class="tip"></span>
+                    </div>
+                </form>
+                    <div style="clear: both" />
+					</div>
+        </div>
+    </div>
+</body>
+</html>

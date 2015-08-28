@@ -1,0 +1,36 @@
+<toolbox>
+<xhtml>true</xhtml>
+<data type="number">
+    <key>version</key>
+    <value>1.1</value>
+</data>
+<data type="boolean">
+    <key>isSimple</key>
+    <value>true</value>
+</data>
+<data type="string">
+    <key>foo</key>
+    <value>this is foo.</value>
+</data>
+<data type="string">
+    <key>bar</key>
+    <value>this is bar.</value>
+</data>
+<tool>
+    <key>map</key>
+    <class>java.util.HashMap</class>
+</tool>
+<tool>
+    <key>math</key>
+    <scope>application</scope>
+    <class>org.apache.velocity.tools.generic.MathTool</class>
+</tool>
+    <toolbox scope="application">
+      <tool class="org.apache.velocity.tools.generic.DisplayTool"/>
+    </toolbox>
+    <tool>
+        <key>stringutil</key>
+        <scope>application</scope>
+        <class>org.apache.commons.lang.StringUtils</class>
+    </tool>
+</toolbox>

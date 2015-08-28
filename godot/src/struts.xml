@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true" />
+    <package name="default" namespace="/" extends="struts-default">
+        <default-action-ref name="index" />
+        <global-results>
+            <result name="error">/error.html</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error"/>
+        </global-exception-mappings>
+
+        <action name="index" class="action.Index">
+        	<result name="success" type="redirect">/list</result>
+        	<result name="error" type="redirect">/error.html</result>
+        	<result name="login" type="redirect">/</result>
+        </action>
+        <action name="list" class="action.SiteList">
+        	<result name="success">/list.html</result>
+        </action>
+        <action name="delete" class="action.Delete">
+		</action>
+		<action name="add" class="action.Add">
+        	<result name="success" type="redirect">/list</result>
+        </action>
+		<!-- update part -->
+		
+		<action name="industrytlist" class="action.IndustrytList">
+        	<result name="success">/industrylist.html</result>
+        </action>
+        
+        <action name="productlist" class="action.ProductList">
+        	<result name="success">/productlist.html</result>
+        </action>
+    </package>
+
+
+    <!-- Add packages here -->
+
+</struts>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>列表页面</title>
+<link href="/css/base.css" type="text/css" rel="stylesheet" />
+<link href="/css/table.css" type="text/css" rel="stylesheet" />
+<script src="/js/jquery-1.8.0.min.js"></script>
+</head>
+<body>
+	<div align="center">
+	<br/><br/>
+	<table border="1" class="table">
+		<tr class="tr">
+		    <th class="th">cookiemapping id</th>
+		    <th class="th">名称</th>
+		    <th class="th">mcookie</th>
+		    <th class="th">uid</th>
+		    <th class="th">uid month</th>
+		    <th class="th">操作</th>
+	  	</tr>
+	  	#foreach($site in $list)
+	  	<tr class="tr">
+		    <td class="th">$site.id</td>
+		    <td class="th">$site.name</td>
+		    <td class="th">0</td>
+		    <td class="th">0</td>
+		    <td class="th">0</td>
+		    <td class="th"><a href="#" class="del" id="$site.id" name="$site.name">删除</a></td>
+		</tr>
+		#end
+	</table>
+	<br/><br/>
+	<div>
+	<h6><a href="/add.html" class="add" >添加</a></h6>       
+	<br/><br/>
+	<a href="/industrytlist" class="add" >行业更新</a>
+	<a href="/productlist" class="add" >产品更新</a>
+	</div>
+	
+	</div>
+</body>
+<script>
+	    $(document).ready(function(){
+	    		// 删除
+	    		$('.del').live('click', function(){
+	    			var $siht = $(this);
+            		var id = $(this).attr('id');
+            		console.log(id);
+            		if(confirm("确定要删除 [ "+$(this).attr('name')+" ] 吗")){
+            			console.log('del');
+            			jQuery.ajax({
+			                url: "/delete?id="+id,
+			                type: "GET",
+			                dataType: "html",
+			                success: function( response ){
+			                	console.log('del is ok');
+			                	$siht.parent().parent().hide();
+			                }
+		            	});
+            		}else{
+            			console.log('no del');
+           			}
+		            
+        		});
+	    })
+        
+
+</script>
+</html>
