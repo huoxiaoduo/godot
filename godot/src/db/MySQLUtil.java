@@ -28,7 +28,8 @@ public class MySQLUtil {
 		String password = PropertitesUtil.readValue("mysql.password");
 		String ip = PropertitesUtil.readValue("mysql.ip");
 		String port = PropertitesUtil.readValue("mysql.port");
-		String url = "jdbc:mysql://"+ip+":"+port+"/oot?useUnicode=true&characterEncoding=utf-8";
+		String db = PropertitesUtil.readValue("mysql.db");
+		String url = "jdbc:mysql://"+ip+":"+port+"/"+db+"?useUnicode=true&characterEncoding=utf-8";
 		
 		Connection con = null ;
 		 try {
