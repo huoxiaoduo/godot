@@ -17,6 +17,8 @@
 		    <th class="th">mcookie</th>
 		    <th class="th">uid</th>
 		    <th class="th">uid month</th>
+		    <th class="th">是否有输出</th>
+		    <th class="th">时间</th>
 		    <th class="th">操作</th>
 	  	</tr>
 	  	#foreach($site in $list)
@@ -26,18 +28,22 @@
 		    <td class="th">$site.mcookie</td>
 		    <td class="th">$site.uid</td>
 		    <td class="th">$site.uid_month</td>
-		    <td class="th"><a href="#" class="del" id="$site.id" name="$site.name">删除</a></td>
+		    <!-- <td class="th"><a href="#" class="del" id="$site.id" name="$site.name">删除</a></td> -->
+		    <td class="th">#if($site.ftp == 0)否 #else是#end</td>
+		    <th class="th">$site.date</th>
+		    <td class="th"><a href="#" class="edit" id="$site.id" name="$site.name">编辑</a></td>
 		</tr>
 		#end
 	</table>
 	<br/><br/>
+	<!--
 	<div>
 	<h6><a href="/add.html" class="add" >添加</a></h6>       
 	<br/><br/>
 	<a href="/industrytlist" class="add" >行业更新</a>
 	<a href="/productlist" class="add" >产品更新</a>
 	</div>
-	
+	-->
 	</div>
 </body>
 <script>

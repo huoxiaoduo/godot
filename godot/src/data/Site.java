@@ -7,7 +7,8 @@ public class Site {
 	private long mcookie = 0L;
 	private long uid = 0L;
 	private long uid_month = 0L;
-	
+	private String ftp = "0";
+	private String date = "";
 	public String getId() {
 		return id;
 	}
@@ -38,4 +39,17 @@ public class Site {
 	public void setUid_month(long uid_month) {
 		this.uid_month = uid_month;
 	}
+	public String getFtp() {
+		return ftp;
+	}
+	public void setFtp(String ftp) {
+		this.ftp = ftp;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
 }

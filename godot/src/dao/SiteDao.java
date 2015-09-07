@@ -42,6 +42,8 @@ public class SiteDao {
 				site.setName(name);
 				site.setUid(uid);
 				site.setUid_month(uid_month);
+				site.setFtp(rst.getString("ftp"));
+				site.setDate(rst.getString("date"));
 				list.add(site);
 			}
 			rst.close();
