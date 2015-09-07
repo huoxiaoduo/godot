@@ -87,4 +87,56 @@ public class SiteDao {
 		}
 		return result;
 	}
+	
+	
+	public static Site getsite(String siteId){
+		Connection con = null;
+		Statement stmt = null;
+		con = MySQLUtil.getConnection();
+		Site site = new Site();
+		try {
+			stmt=con.createStatement();
+			//获取用户列表
+			ResultSet rst=stmt.executeQuery("select * from site where id ='"+siteId+"'");
+			if(rst.next()){
+				String id = rst.getString("id");
+				String name = rst.getString("name");
+				long mcookie = rst.getLong("mcookie");
+				long uid = rst.getLong("uid");
+				long uid_month = rst.getLong("uid_month");
+				site.setId(id);
+				site.setMcookie(mcookie);
+				site.setName(name);
+				site.setUid(uid);
+				site.setUid_month(uid_month);
+				site.setFtp(rst.getString("ftp"));
+				site.setDate(rst.getString("date"));
+			}
+			rst.close();
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+		}
+		return  site;
+	}
+	
+	public static Long  updateSite(Site site){
+		long result = 0L;
+		Connection conn = MySQLUtil.getConnection();
+		String sql = "UPDATE site SET `name` = '"+site.getName()+"',`ftp`='"+site.getFtp().trim()+"' WHERE id = '"+site.getId()+"' ";
+		try {
+			Statement stmt=conn.createStatement();
+			result = stmt.executeUpdate(sql);
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.error(sql);
+			logger.error(e.getMessage());
+		}
+		return result;
+	}
+	
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>网站编辑</title>
+    <script src="http://static.cnblogs.com/script/jquery.js"></script>
+</head>
+<body>
+<div>
+<form method="post" action="/edit">
+site id :　$!site.id  <input type="hidden" name="id" value="$!site.id"><br><br>
+site name :　<input type="text" name="name" value="$!site.name"> <br><br>
+site id :　<input type="text" name="ftp" value="$!site.ftp"> 0未输出  1有输出<br><br>
+
+<input type="submit" class="button" value="修 改" />
+</form>
+</div>
+</body>
+</html>

@@ -31,7 +31,7 @@
 		    <!-- <td class="th"><a href="#" class="del" id="$site.id" name="$site.name">删除</a></td> -->
 		    <td class="th">#if($site.ftp == 0)否 #else是#end</td>
 		    <th class="th">$site.date</th>
-		    <td class="th"><a href="#" class="edit" id="$site.id" name="$site.name">编辑</a></td>
+		    <td class="th"><a href="/toedit?id=$site.id" class="edit" id="$site.id" name="$site.name">编辑</a></td>
 		</tr>
 		#end
 	</table>

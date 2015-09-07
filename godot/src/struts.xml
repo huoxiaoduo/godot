@@ -37,6 +37,17 @@
         <action name="productlist" class="action.ProductList">
         	<result name="success">/productlist.html</result>
         </action>
+        
+         <action name="toedit" class="action.ToEdit">
+        	<result name="success">/edit.html</result>
+        	<result name="error" type="redirect">/error.html</result>
+         </action>
+         
+          <action name="edit" class="action.Edit">
+        	<result name="success" type="redirect">/list</result>
+        	<result name="error" type="redirect">/error.html</result>
+         </action>
+        
     </package>
 
 
