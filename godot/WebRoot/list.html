@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div align="center">
-	<br/><br/>
+	<br/><br/>mcookie site id 共有: $list.size() 个    输出的用户数量： $!ftpCount   mcookie>1000的网站数量：$!mcookieCount
 	<table border="1" class="table">
 		<tr class="tr">
 		    <th class="th">cookiemapping id</th>
@@ -17,17 +17,23 @@
 		    <th class="th">mcookie</th>
 		    <th class="th">uid</th>
 		    <th class="th">uid month</th>
+		    <th class="th">month/mcookie</th>
+		    <th class="th">month/uid</th>
 		    <th class="th">是否有输出</th>
 		    <th class="th">时间</th>
 		    <th class="th">操作</th>
 	  	</tr>
 	  	#foreach($site in $list)
-	  	<tr class="tr">
+	  	<tr class="tr js_percent">
 		    <td class="th">$site.id</td>
 		    <td class="th">$site.name</td>
-		    <td class="th">$site.mcookie</td>
-		    <td class="th">$site.uid</td>
-		    <td class="th">$site.uid_month</td>
+		    <td class="th mcookie">$site.mcookie</td>
+		    <td class="th uid">$site.uid</td>
+		    <td class="th month">$site.uid_month</td>
+		    <td class="th percent">
+		    </td>
+		    <td class="th percent2">
+		    </td>
 		    <!-- <td class="th"><a href="#" class="del" id="$site.id" name="$site.name">删除</a></td> -->
 		    <td class="th">#if($site.ftp == 0)否 #else是#end</td>
 		    <th class="th">$site.date</th>
@@ -68,6 +74,14 @@
             			console.log('no del');
            			}
 		            
+        		});
+        		// get percent
+        		$('.js_percent').each(function(){
+        			var mcookie = $(this).find('.mcookie').text();
+        			var month = $(this).find('.month').text();
+        			var uid = $(this).find('.uid').text();
+        			$(this).find('.percent').text(((month/mcookie)*100).toFixed(2)+'%')
+        			$(this).find('.percent2').text(((month/uid)*100).toFixed(2)+'%')
         		});
 	    })
         
