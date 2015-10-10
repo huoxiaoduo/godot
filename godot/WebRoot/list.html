@@ -21,11 +21,14 @@
 		    <th class="th">mcookie</th>
 		    <th class="th">uid</th>
 		    <th class="th">uid month</th>
+		    <th class="th">mcookie month</th>
 		    <th class="th">month/mcookie</th>
 		    <th class="th">month/uid</th>
 		    <th class="th">是否有输出</th>
 		    <th class="th">时间</th>
 		    <th class="th">操作</th>
+		    <th class="th">历史</th>
+		    <th class="th">FTP</th>
 	  	</tr>
 	  	#foreach($site in $list)
 	  	<tr class="tr js_percent">
@@ -34,6 +37,7 @@
 		    <td class="th mcookie">$site.mcookie</td>
 		    <td class="th uid">$site.uid</td>
 		    <td class="th month">$site.uid_month</td>
+		    <td class="th">#if($site.ftp == 1 && $site.mcookie_month != -1) $site.mcookie_month #elseif($site.ftp == 1 && $site.mcookie_month==-1) $site.mcookieMore #end </td>
 		    <td class="th percent">
 		    </td>
 		    <td class="th percent2">
@@ -42,6 +46,8 @@
 		    <td class="th">#if($site.ftp == 0)否 #else是#end</td>
 		    <th class="th">$site.date</th>
 		    <td class="th"><a href="/toedit?id=$site.id" class="edit" id="$site.id" name="$site.name">编辑</a></td>
+		    <td class="th"><a href="/history?id=$site.id" class="edit" >查看</a></td>
+		    <td class="th"><a href="/ftphistory?id=$site.id" class="edit" >ftp</a></td>
 		</tr>
 		#end
 	</table>

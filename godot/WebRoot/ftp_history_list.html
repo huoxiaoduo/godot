@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>FTP</title>
+<link href="/css/base.css" type="text/css" rel="stylesheet" />
+<link href="/css/table.css" type="text/css" rel="stylesheet" />
+<script src="/js/jquery-1.8.0.min.js"></script>
+</head>
+<body>
+	<div align="center">
+	<table border="1" class="table">
+		<tr class="tr">
+		    <th class="th">cookiemapping id</th>
+		    <th class="th">ftp mcookie</th>
+		    <th class="th">file name</th>
+		    <th class="th">时间</th>
+	  	</tr>
+	  	#foreach($site in $list)
+	  	<tr class="tr js_percent">
+		    <td class="th">$site.siteId</td>
+		    <td class="th mcookie">$site.count</td>
+		    <td class="th uid">$site.fileName</td>
+			<th class="th">$site.date</th>
+		</tr>
+		#end
+	</table>
+	<br/><br/>
+	
+	</div>
+</body>
+<script>
+	    $(document).ready(function(){
+	    		
+	    })
+</script>
+</html>

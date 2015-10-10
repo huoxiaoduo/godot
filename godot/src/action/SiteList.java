@@ -11,7 +11,9 @@ import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import dao.FtpHistoryDao;
 import dao.SiteDao;
+import data.FtpHistory;
 import data.Site;
 
 public class SiteList extends ActionSupport {
@@ -38,6 +40,24 @@ public class SiteList extends ActionSupport {
 			}
 			ftpCount = String.valueOf(fcount);
 			mcookieCount = String.valueOf(mcount);
+			// reset mcookie month
+			FtpHistoryDao fdao = new FtpHistoryDao();
+			for (Site site : list) {
+				List<FtpHistory> flist =  fdao.getFtpHistoryList(site.getId(),site.getDate());
+				if(flist.size()==1){
+					site.setMcookie_month(flist.get(0).getCount());
+				}else if(flist.size() >= 1){
+					site.setMcookie_month(-1);
+					String mcookieMore = "";
+					for (FtpHistory ftpHistory : flist) {
+						mcookieMore = mcookieMore +","+ ftpHistory.getFileName()+":"+ftpHistory.getCount();
+					}
+					mcookieMore = mcookieMore.replaceFirst(",", "");
+					site.setMcookieMore(mcookieMore);
+				}else{
+					site.setMcookie_month(0);
+				}
+			}
 			return SUCCESS;
 		}
 		return "home";

@@ -48,6 +48,15 @@
         	<result name="error" type="redirect">/error.html</result>
          </action>
         
+         <action name="history" class="action.HistoryList">
+        	<result name="success">/history_list.html</result>
+        	<result name="error" type="redirect">/error.html</result>
+         </action>
+         <action name="addftphistory" class="action.AddFtpHistory"/>
+          <action name="ftphistory" class="action.FtpHistoryList">
+        	<result name="success">/ftp_history_list.html</result>
+        	<result name="error" type="redirect">/error.html</result>
+         </action>
     </package>
 
 

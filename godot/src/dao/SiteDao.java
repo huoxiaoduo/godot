@@ -35,7 +35,7 @@ public class SiteDao {
 				long mcookie = rst.getLong("mcookie");
 				long uid = rst.getLong("uid");
 				long uid_month = rst.getLong("uid_month");
-				
+				long mcookie_month = rst.getLong("mcookie_month");
 				Site site = new Site();
 				site.setId(id);
 				site.setMcookie(mcookie);
@@ -44,6 +44,7 @@ public class SiteDao {
 				site.setUid_month(uid_month);
 				site.setFtp(rst.getString("ftp"));
 				site.setDate(rst.getString("date"));
+				site.setMcookie_month(mcookie_month);
 				list.add(site);
 			}
 			rst.close();
@@ -104,6 +105,7 @@ public class SiteDao {
 				long mcookie = rst.getLong("mcookie");
 				long uid = rst.getLong("uid");
 				long uid_month = rst.getLong("uid_month");
+				long mcookie_month = rst.getLong("mcookie_month");
 				site.setId(id);
 				site.setMcookie(mcookie);
 				site.setName(name);
@@ -111,6 +113,7 @@ public class SiteDao {
 				site.setUid_month(uid_month);
 				site.setFtp(rst.getString("ftp"));
 				site.setDate(rst.getString("date"));
+				site.setMcookie_month(mcookie_month);
 			}
 			rst.close();
 			stmt.close();
@@ -137,6 +140,41 @@ public class SiteDao {
 			logger.error(e.getMessage());
 		}
 		return result;
+	}
+	
+	
+	public static List<Site> getHistorySite(String siteId){
+		Connection con = null;
+		Statement stmt = null;
+		con = MySQLUtil.getConnection();
+		List<Site> list = new ArrayList<Site>();
+		try {
+			stmt=con.createStatement();
+			//获取用户列表
+			ResultSet rst=stmt.executeQuery("select * from history where site_id ='"+siteId+"'");
+			while(rst.next()){
+				Site site = new Site();
+				String id = rst.getString("site_id");
+				long mcookie = rst.getLong("mcookie");
+				long uid = rst.getLong("uid");
+				long uid_month = rst.getLong("uid_month");
+				long mcookie_month = rst.getLong("mcookie_month");
+				site.setId(id);
+				site.setMcookie(mcookie);
+				site.setUid(uid);
+				site.setUid_month(uid_month);
+				site.setMcookie_month(mcookie_month);
+				site.setDate(rst.getString("date"));
+				list.add(site);
+			}
+			rst.close();
+			stmt.close();
+			con.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.error(e.getMessage());
+		}
+		return  list;
 	}
 	
 }

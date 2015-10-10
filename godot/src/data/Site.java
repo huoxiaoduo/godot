@@ -7,8 +7,13 @@ public class Site {
 	private long mcookie = 0L;
 	private long uid = 0L;
 	private long uid_month = 0L;
+	private long mcookie_month = 0L;
 	private String ftp = "0";
 	private String date = "";
+	
+	private String mcookieMore = "";  // 多个 mcookie_month 用于页面显示
+	
+	
 	public String getId() {
 		return id;
 	}
@@ -50,6 +55,18 @@ public class Site {
 	}
 	public void setDate(String date) {
 		this.date = date;
+	}
+	public long getMcookie_month() {
+		return mcookie_month;
+	}
+	public void setMcookie_month(long mcookie_month) {
+		this.mcookie_month = mcookie_month;
+	}
+	public String getMcookieMore() {
+		return mcookieMore;
+	}
+	public void setMcookieMore(String mcookieMore) {
+		this.mcookieMore = mcookieMore;
 	}
 	
 }
